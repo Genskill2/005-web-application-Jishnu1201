@@ -92,6 +92,8 @@ def edit(pid):
         if sold == "sold":
             cursor.execute("UPDATE pet SET sold=? WHERE id=?;", (datetime.date.today().strftime("%Y-%m-%d"), pid))
             conn.commit()
+        else:
+            cursor.execute("UPDATE pet SET sold=null WHERE id=?;", (pid))
         return redirect(url_for("pets.pet_info", pid=pid), 302)
         
     
