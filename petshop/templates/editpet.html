@@ -8,7 +8,7 @@
   </h6>
   <h6>Bought on {{bought}}
   {%if sold %}
-  <span class="badge rounded-pill bg-success">Sold</span>
+  <span class="badge rounded-pill bg-success">Sold</span> (on {{sold}})
   {% else %}
   <span class="badge rounded-pill bg-primary">Available for sale</span>
   {%endif%}
@@ -25,8 +25,11 @@
   <div class="mb-3">
     <div class="form-check">
       {# TODO  Add sold checkbox here #}
+      {% if sold %}
+      {% else %} 
         <input type="checkbox" id="sold" name="sold" value="sold"> 
         <label class="form-check-label" for="sold" > Sold </label>
+      {% endif %}
     </div>
   </div>
 
